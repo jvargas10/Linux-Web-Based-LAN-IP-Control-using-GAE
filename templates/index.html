@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1 align='center'>IP's Control</h1>
+	<div id='table_computers_content'>
+	<form method="post"> 
+		<table border='1' cellpadding='4' cellspacing='2'>
+			<tr>
+				<td align='center'><b>Classroom</b></td>
+				<td align='center'><b>Change State</b></td>
+				<td align='center'><b>State</b></td>
+				<td align='center'><b>Computer Name</b></td>
+				<td align='center'><b>Computer IP</b></td>
+				<td align='center'><b>Update Computer</b></td>
+				<td align='center'><b>Delete Computer</b></td>
+			</tr>
+			{{table_content}}
+			<tr>
+				<td colspan='7' align='center'><input type='submit' value='Change Status'> </td>
+			</tr>
+		</table>
+	</form>
+	</div>
+{% endblock %}
+

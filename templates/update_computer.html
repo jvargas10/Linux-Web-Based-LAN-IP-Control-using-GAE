@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1 align='center'>Updating Computer {{computer_dict['computer_name']}}</h1><br>
+	<div id='new_computer_form'>
+	<form method="post"> 
+		<table border='0' cellpadding='3' cellspacing='2'>
+			<tr>
+				<td align='right'>Computer Name:</td>
+				<td align='left'><input type='text' size='33' name='computer_name' value="{{computer_dict['computer_name']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['computer_name']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>IP:</td>
+				<td align='left'><input type='text' size='33' name='ip' value="{{computer_dict['ip']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['ip']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>IP State:</td>
+				<td align='left' colspan='2'>
+					<select name='ip_state'>
+						{% if computer_dict['ip_state'] == 1 %}
+							<option value='1' selected>On</option>
+							<option value='0'>Off</option>
+						{% else %}
+							<option value='1' >On</option>
+							<option value='0' selected>Off</option>
+						{% endif %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align='right'>Computer Location:</td>
+				<td align='left' colspan='2'>
+					<select name='computer_location'>
+						{% for place in ['Classroom1', 'Classroom2', 'Classroom3', 'Lab1'] %}
+							{% if place == computer_dict['computer_location'] %}
+								<option selected>{{place}}</option>
+							{% else %}
+								<option>{{place}}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align='right'>CPU (GHz):</td>
+				<td align='left'><input type='text' size='33' maxlength='5' name='cpu' value="{{computer_dict['cpu']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['cpu']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>Hard Disk (GB):</td>
+				<td align='left'><input type='text' size='33' maxlength='5'  name='hdd' value="{{computer_dict['hdd']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['hdd']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>RAM Memory (GB):</td>
+				<td align='left'><input type='text' size='33' maxlength='5' name='memory' value="{{computer_dict['memory']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['memory']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>Motherboard Model:</td>
+				<td align='left'><input type='text' size='33' name='motherboard_model' value="{{computer_dict['motherboard_model']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['motherboard_model']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>CPU Model:</td>
+				<td align='left'><input type='text' size='33' name='gpu_model' value="{{computer_dict['gpu_model']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['gpu_model']}}</td>
+			</tr>
+			<tr>
+				<td align='right'>Operative System:</td>
+				<td align='left'><input type='text' size='33' name='operative_system' value="{{computer_dict['operative_system']}}"></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['operative_system']}}</td>
+			</tr>
+			<tr>
+				<td align='right' valign='top'>Installed Programs:</td>
+				<td align='left'><textarea name='installed_programs' cols='25' rows='15' >{{computer_dict['installed_programs']}}</textarea></td>
+				<td id='error_text' align='left' style='color:red'>{{error_computer_dict['installed_programs']}}</td>
+			</tr>
+			<tr>
+				<td align='right' colspan='2'><input type='submit' value='Update'></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+{% endblock %}
